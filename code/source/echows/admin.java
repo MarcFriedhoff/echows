@@ -39,7 +39,7 @@ public final class admin
 		buffer.append("current dir: " + System.getProperty("user.dir"));
 		buffer.append(System.lineSeparator());
 		
-		String filePath = "/opt/softwareag/IntegrationServer/config/aclmap_sm.conf";
+		String filePath = "/opt/softwareag/IntegrationServer/config/aclmap_sm.cnf";
 		
 		try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
 		    String line;
