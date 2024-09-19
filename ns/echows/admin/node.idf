@@ -12,5 +12,8 @@
   <array name="implements" type="value" depth="1">
   </array>
   <array name="imports" type="value" depth="1">
+    <value>java.io.BufferedReader</value>
+    <value>java.io.FileReader</value>
+    <value>java.io.IOException</value>
   </array>
 </Values>
