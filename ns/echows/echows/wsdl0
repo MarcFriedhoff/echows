@@ -1,0 +1,44 @@
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://example.com/echo" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="EchoService" targetNamespace="http://example.com/echo">
+  <types>
+    <xs:schema targetNamespace="http://example.com/echo">
+            <xs:element name="EchoRequest" type="xs:string"/>
+            <xs:element name="EchoResponse" type="xs:string"/>
+        </xs:schema>
+  </types>
+  <message name="EchoResponseMessage">
+    <part name="parameters" element="tns:EchoResponse">
+    </part>
+  </message>
+  <message name="EchoRequestMessage">
+    <part name="parameters" element="tns:EchoRequest">
+    </part>
+  </message>
+  <portType name="EchoPortType">
+    <operation name="Echo">
+      <input message="tns:EchoRequestMessage">
+    </input>
+      <output message="tns:EchoResponseMessage">
+    </output>
+    </operation>
+  </portType>
+  <binding name="EchoBinding" type="tns:EchoPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Echo">
+      <soap:operation soapAction="http://example.com/echo/Echo"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="echows">
+    <port name="EchoPort" binding="tns:EchoBinding">
+      <soap:address location="http://psdev.apigw-aw-eu.webmethods.io/ws/echows.EchoPort/1"/>
+    </port>
+    <port name="EchoPort2" binding="tns:EchoBinding">
+      <soap:address location="http://psdev.apigw-aw-eu.webmethods.io/ws/echows/1"/>
+    </port>
+  </service>
+</definitions>
